@@ -13,7 +13,7 @@ import * as passport from "passport";
 import * as expressValidator from "express-validator";
 import * as bluebird from "bluebird";
 
-const MongoStore = mongo(session);
+// const MongoStore = mongo(session);
 
 // Load environment variables from .env file, where API keys and passwords are configured
 dotenv.config({ path: ".env.example" });
@@ -54,10 +54,10 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   secret: process.env.SESSION_SECRET,
-  store: new MongoStore({
-    url: mongoUrl,
-    autoReconnect: true
-  })
+  // store: new MongoStore({
+  //   url: mongoUrl,
+  //   autoReconnect: true
+  // })
 }));
 app.use(passport.initialize());
 app.use(passport.session());
